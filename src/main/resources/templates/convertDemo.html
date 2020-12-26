@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="utf-8">
+    <title>通合软件</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--IE兼容组件-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="description" content="">
+    <link rel="shortcut icon" type="image/x-icon" th:href="@{sources/imgs/th-logo.ico}">
+    <link rel="stylesheet" th:href="@{sources/bootstrap-4.4.1/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{sources/css/iconfont.css}">
+
+    <script type="text/javascript" th:src="@{sources/jquery/jquery-3.4.1.min.js}"></script>
+    <script type="text/javascript" th:src="@{sources/bootstrap-4.4.1/js/bootstrap.js}"></script>
+    <script type="text/javascript" src="http://www.jq22.com/demo/jquerypdf201808150005/js/jquery.media.js"></script>
+
+
+</head>
+<body>
+<div class="container">
+    <div class="tab-content mt-3">
+        <div class="tab-pane fade show active" role="tabpanel" aria-labelledby="info-tab">
+            <form id="fileUpload" method="post" enctype="multipart/form-data">
+                <div class="input-group">
+                    <div class="custom-file">
+                        <input onchange="showFilename(this.files[0])" accept=".doc,.docx,.xls,.xlsx,.ppt,.pptx"  type="file" class="custom-file-input" id="inputGroupFile" name="fileName" aria-describedby="inputGroupFileAddon06">
+                        <label id="fileName_label" class="custom-file-label" for="inputGroupFile">选择文件……</label>
+                    </div>
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="button" onclick="fileUpload('modelUploadForm');" id="inputGroupFileAddon07">转PDF</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+<script type="text/javascript">
+
+    $(document).ready(function(){
+        $('#a1').media({width:800, height:600});
+    });
+    function fileUpload() {
+        $.ajax({
+            url: '/convert' ,
+            type: 'post',
+            data:  {
+                downloadUrl: "http://dcs.yozosoft.com/example/doc/doctest.docx",
+                fileName: "doctest.docx"
+            },
+            dataType : "json",
+            async: true,
+            success: function (result) {
+                if(result.code === "0")
+                {
+                    alert("上传成功");
+                }
+            }
+        });
+    }
+
+    function showFilename(file){
+        $("#fileName_label").html(file.name);
+    }
+</script>
+<script src="https://getbootstrap.com/docs/4.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<footer class="fixed-bottom bd-footer text-muted">
+    <div class="container-fluid p-3 p-md-3 text-center">
+        <p>通合软件 Copyright©️2013-2021 TongHe Software Corporation, All Rights Reserved | 粤ICP备20014408号-1</p>
+    </div>
+</footer>
+</body>
+</html>

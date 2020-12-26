@@ -1,0 +1,31 @@
+body {
+}
+
+html, body {
+
+}
+
+a {
+    text-decoration: none !important;
+    font-size: inherit
+}
+
+table {
+    border: solid 1px #fff;
+    width: 100%
+}
+
+tr:hover {
+    background: #eee;
+
+}
+
+tr {
+
+}
+
+footer {
+    color: #484848;
+    text-align: center;
+    font-size: .16rem
+}

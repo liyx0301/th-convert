@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<body >
+        <blockquote>
+        <input type="button" value="1.docx"  onclick="openFile('1')"/>
+        <input type="button" value="2.pptx"  onclick="openFile('2')"/>
+        <input type="button" value="3.xlsx"  onclick="openFile('3')"/>
+        <input type="button" value="保存"  onclick="saveFile()"/>
+
+        </blockquote>
+
+        <div class="custom-mount"></div>
+</body>
+<script src = "https://qn.cache.wpscdn.cn/js/jquery-1.9.1.min.js"> </script>
+<script type="text/javascript" th:src="@{sources/web-office-sdk-v1.1.8.umd.js}"></script>
+<script >
+    var demo;
+    function openFile(filename)
+    {
+        //XXX:XXX?_w_fileid=UUID&_w_imagefileid=12312312&_w_userid=1111&_w_username=test
+        $.get("/api/weboffice/url?_w_fileid=" + filename , function(result) {
+            console.log(result);
+
+            demo = WebOfficeSDK.config({
+                mount: document.querySelector('.custom-mount'),
+                url: result.wpsUrl
+            })
+        })
+    }
+    function saveFile() {
+        var result = demo.save();
+    }
+</script>
+<style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      /* 防止双击缩放 */
+      touch-action: manipulation;
+    }
+
+    iframe {
+      flex: 1;
+      height: 700px;
+    }
+  </style>
+</html>

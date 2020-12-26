@@ -1,0 +1,23 @@
+Manifest-Version: 1.0
+Class-Path: jackson-annotations-2.11.0.jar snakeyaml-1.26.jar spring-b
+ oot-starter-thymeleaf-2.3.1.RELEASE.jar logback-core-1.2.3.jar spring
+ -webmvc-5.2.7.RELEASE.jar spring-core-5.2.7.RELEASE.jar jul-to-slf4j-
+ 1.7.30.jar spring-boot-2.3.1.RELEASE.jar slf4j-api-1.7.30.jar spring-
+ boot-configuration-processor-2.3.1.RELEASE.jar spring-context-5.2.7.R
+ ELEASE.jar attoparser-2.0.5.RELEASE.jar spring-boot-autoconfigure-2.3
+ .1.RELEASE.jar spring-aop-5.2.7.RELEASE.jar jackson-module-parameter-
+ names-2.11.0.jar spring-expression-5.2.7.RELEASE.jar spring-jcl-5.2.7
+ .RELEASE.jar thymeleaf-spring5-3.0.11.RELEASE.jar jackson-datatype-js
+ r310-2.11.0.jar hutool-all-5.3.9.jar spring-boot-starter-json-2.3.1.R
+ ELEASE.jar thymeleaf-3.0.11.RELEASE.jar fastjson-1.2.55.jar spring-we
+ b-5.2.7.RELEASE.jar logback-classic-1.2.3.jar spring-beans-5.2.7.RELE
+ ASE.jar unbescape-1.1.6.RELEASE.jar spring-boot-starter-tomcat-2.3.1.
+ RELEASE.jar spring-boot-starter-2.3.1.RELEASE.jar jakarta.el-3.0.3.ja
+ r spring-boot-starter-web-2.3.1.RELEASE.jar tomcat-embed-websocket-9.
+ 0.36.jar jackson-databind-2.11.0.jar tomcat-embed-core-9.0.36.jar log
+ 4j-api-2.13.3.jar jakarta.annotation-api-1.3.5.jar jackson-core-2.11.
+ 0.jar jackson-datatype-jdk8-2.11.0.jar thymeleaf-extras-java8time-3.0
+ .4.RELEASE.jar spring-boot-starter-logging-2.3.1.RELEASE.jar log4j-to
+ -slf4j-2.13.3.jar
+Main-Class: com.th.convert.ConvertApplication
+
